@@ -1,0 +1,78 @@
+public void actionPerformed(ActionEvent e)
+{
+if(e.getSource()==btn)
+{
+a=txt.getText();
+b=txta.getText();
+c=txt1.getText();
+d=txt2.getText();
+e1=txt3.getText();
+f=txt4.getText();
+g=txt5.getText();
+h=txta1.getText();
+i=txta2.getText();
+j=txt6.getText();
+k=(String)ch.getSelectedItem();
+l=(String)ch1.getSelectedItem();
+m=rb.getActionCommand();
+{
+try{
+Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+Connection con=DriverManager.getConnection("jdbc:odbc:Hospital Management");
+PreparedStatement st=con.prepareStatement("insert into Table values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+st.setString(1,a);
+st.setString(2,b);
+st.setString(3,c);
+st.setString(4,d);
+st.setString(3,e1);
+st.setString(6,f);
+st.setString(7,g);
+st.setString(8,h);
+st.setString(9,i);
+st.setString(10,j);
+st.setString(11,k);
+st.setString(12,l);
+st.setString(13,m);
+ResultSet rst=st.executeQuery();
+if(rst.next())
+
+{
+System.out.println("successful login");
+}
+}catch(Exception ee)
+{
+ee.printStackTrace();
+}
+}
+}
+else if(e.getSource()==btn1)
+{
+txt.setText("");
+txt1.setText("");
+txt2.setText("");
+txt3.setText("");
+txt4.setText("");
+txt5.setText("");
+txt6.setText("");
+txta.setText("");
+txta1.setText("");
+txta2.setText("");
+}
+else if(e.getSource()==btn2)
+{
+new Start1();
+dispose();
+}
+}
+}
+
+
+
+
+
+
+
+
+
+
